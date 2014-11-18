@@ -1,0 +1,44 @@
+.bs-callout{margin:0px 0;padding:10px;border-left:3px solid #eee}
+.bs-callout h4{margin-top:0;margin-bottom:5px}
+.bs-callout p:last-child{margin-bottom:0}
+.bs-callout code{background-color:#fff;border-radius:3px}
+.bs-callout-danger{background-color:#fdf7f7;border-color:#d9534f}
+.bs-callout-danger h4{color:#d9534f}
+.bs-callout-warning{background-color:#fcf8f2;border-color:#f0ad4e}
+.bs-callout-warning h4{color:#f0ad4e}
+.bs-callout-info{background-color:#f4f8fa;border-color:#5bc0de}
+.bs-callout-info h4{color:#5bc0de}
+.bs-callout-success{background-color:#F1FFE5;border-color:#3FC63B}
+.bs-callout-success h4{color:#3FC63B}
+
+/*** PERSONALIZACIONES ***/
+body{
+    font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif";
+}
+input, textarea, select{
+    text-transform: uppercase;
+}
+#cmbReporte{
+    text-transform: none;
+}
+label {
+    font-weight: normal;
+}
+.ui-datepicker-trigger{
+    display: none;
+}
+.conc-1,.conc-2,.conc-3,.conc-4,.conc-5{
+    background-color: #FDF7F7;
+}
+
+/*.arg-action {
+        width: 1%;
+}
+
+.navbar-default .navbar-nav>li>a {
+        color: #ddd;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+        color: #fff;
+}*/

@@ -1,0 +1,66 @@
+<h3 style="font-size: 16px;font-family: segoe ui;text-align: center;margin-top: 80px;">
+    LIMPIO - Sistema Limpio
+</h3>
+<div id="contenedor">
+    <script type="text/javascript">
+
+        $(function() {
+            $("#acp").button(
+                    {
+                        icons: {
+                            primary: 'ui-icon-locked'}}).bind('click', function(e) {
+                $("#frmlogin").submit();
+            });
+
+            $("#lp").button(
+                    {
+                        icons: {
+                            primary: 'ui-icon-trash'}}).bind('click', function(e) {
+
+                e.preventDefault();
+
+                $('#login').val('');
+                $('#clave').val('');
+
+            });
+
+            $("#clave,#login").addClass("ui-corner-all");
+        });
+
+    </script>
+
+    <form action='index.php/login' method='post'>
+        <table width="400" border="0" align="center" style="margin-top:40px; padding: 20px 60px;" class="ui-widget-content ui-corner-all">
+            <tr>
+                <td ><img alt=""  src="images/login.gif"></td>
+                <td width="150px" style="font-weight: bold;text-align:left;font-size: 14px">Acceso al sistema</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="color: #ff0000;font-weight: bolder;font-size: 12px">{$mensaje}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 12px"><label>Usuario : </label></td>
+                <td style="font-size: 12px">
+                    <input type="text" name='login' id='login' class="ui-widget-content" style="background:url(images/group.png) right no-repeat #FFFFFF">
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: 12px"><label>Clave :</label> </td>
+                <td style="font-size: 12px">
+                    <input type="password" name='clave' id='clave' class="ui-widget-content" style="background:url(images/tag.png) right no-repeat #FFFFFF">
+                </td>
+            </tr>
+            <tr>
+                <td height="29" colspan="2"><div id="login" style="margin-left:5px;padding-left:5px;font-family:segoe ui,Geneva, Arial, Helvetica, sans-serif;font-size:12px;color:#00FF00;font-weight:bold;"></div></td>
+            </tr>
+            <tr >
+                <td width="74" height="29" style="font-size: 12px"><label>
+                        <button id="acp">Ingresar</button>
+                    </label></td>
+                <td width="74"><label>
+                        <button id="lp">Limpiar</button>
+                    </label></td>
+            </tr>
+        </table>
+    </form>
+</div>
