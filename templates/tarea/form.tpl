@@ -77,6 +77,7 @@
                             <label class="required" for="codigo_referencia">CODIGO REFERENCIA (PATRIMONIAL)</label>
                             <br/>
                             <input type="text" name="codigo_referencia" id="codigo_referencia" class="text ui-widget-content ui-corner-all" style="width: 100%"/>                    
+                      
                         </td>
                     </tr>                           
                     <tr>
@@ -202,7 +203,7 @@
 			<td>
           
             <div id="div_mapa">
-                        <img src="../images/unsm.jpg" style="width: 300px;height: 370px;"/>
+                        <img src="../images/unsm.jpg" style="width: 500px;height: 370px;"/>
                     </div>
 				
 			</td>

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.0rc1, created on 2014-11-21 23:36:04
+<?php /* Smarty version 3.0rc1, created on 2014-07-07 01:51:20
          compiled from ".\templates\tarea/form.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:4802547012b4624777-97901264%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1869153ba4368901799-56164256%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'bfd554c5a58ea5f381cbce5cfd5df31dec9968b8' => 
     array (
       0 => '.\\templates\\tarea/form.tpl',
-      1 => 1416630538,
+      1 => 1404715876,
     ),
   ),
-  'nocache_hash' => '4802547012b4624777-97901264',
+  'nocache_hash' => '1869153ba4368901799-56164256',
   'function' => 
   array (
   ),
@@ -107,7 +107,6 @@ if (count($_from) > 0){
                             <label class="required" for="codigo_referencia">CODIGO REFERENCIA (PATRIMONIAL)</label>
                             <br/>
                             <input type="text" name="codigo_referencia" id="codigo_referencia" class="text ui-widget-content ui-corner-all" style="width: 100%"/>                    
-                      
                         </td>
                     </tr>                           
                     <tr>
@@ -233,7 +232,7 @@ if (count($_from) > 0){
 			<td>
           
             <div id="div_mapa">
-                        <img src="../images/unsm.jpg" style="width: 500px;height: 370px;"/>
+                        <img src="../images/unsm.jpg" style="width: 300px;height: 370px;"/>
                     </div>
 				
 			</td>

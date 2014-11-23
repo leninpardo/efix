@@ -14,7 +14,7 @@ include_once("lib/jsgridbdORM.php");
 include_once("lib/jsgridbd.php");
 
 // 	error_reporting(0);
-error_reporting(E_ALL);
+error_reporting(0);
 
 if (!file_exists('templates_c')) {
     mkdir('templates_c');

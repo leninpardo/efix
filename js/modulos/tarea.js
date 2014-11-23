@@ -297,7 +297,7 @@ $(document).ready(function() {
                         $('#det_imagen').attr('src','../archivos/' + response.response.averia.imagen);
                         $("#div_mapa").empty();
                        // $("#div_mapa").append("hola");
-                        $("#div_mapa").append("<img src='../images/unsm.jpg' width='300px' heigth='370px' ></img>");
+                        $("#div_mapa").append("<img src='../images/unsm.jpg' width='400px' heigth='450px' ></img>");
                         $("#div_mapa").append("<img src='../images/efix.png' width='20px' heigth='20px' style='"+ response.response.averia.position +"' ></img>");
 
                         $("#dlgDetalle").dialog("open");

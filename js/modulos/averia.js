@@ -244,7 +244,7 @@ $(document).ready(function() {
                         $('#det_imagen').attr('src','../archivos/' + response.response.imagen);
                         // $('#det_mapa').attr('src','..//' + response.response.imagen);
                         $("#div_mapa").empty();
-                        $("#div_mapa").append("<img src='../images/unsm.jpg' width='300px' heigth='370px' ></img>");
+                        $("#div_mapa").append("<img src='../images/unsm.jpg' width='500px' heigth='450px' ></img>");
                         $("#div_mapa").append("<img src='../images/efix.png' width='20px' heigth='20px' style='"+response.response.position+"' ></img>");
                          //$("#det_mapa").attr('src','../images/unsm.jpg');
                         $("#dlgDetalle").dialog("open");

@@ -167,6 +167,7 @@ class cIndex extends ControllerBase {
         if (isset($_REQUEST['intranet'])) {
             if (!isset($_SESSION['usuario'])) {
                   $usuario = $_SESSION['usuario'];
+                  
             $smarty->assign('usuario', $usuario);
                 $smarty->assign('mensaje', $mensaje);
                 $smarty->assign('mensaje_averia', $mensaje_averia);
@@ -230,7 +231,7 @@ class cIndex extends ControllerBase {
         $obj->usua_nombres = $_REQUEST['nombres'];
         $obj->usua_direccion = '-';
         $obj->usua_telefono = '-';
-        $obj->usua_estado = 'false';
+        $obj->usua_estado = 'true';
         $obj->perf_id = 3;
         $obj->id_personal = 0;
         $obj->create();
@@ -241,8 +242,8 @@ class cIndex extends ControllerBase {
         $idmd = md5($obj->usua_id);
         
         $asunto = 'Validacion de usuario';
-        $cuerpo = 'Click en el siguiente link para confirmar <br />'
-                . '<a href="http://www.delycius.pe/efix/index.php/confirmarCorreo?usuario='.$idmd.'" target="_blank">Click Aqui</a>';
+        $cuerpo = 'SE envio este correo para informarle que con su cuenta se creo en sistema de averias, si ud. no creo esta cuenta  <br />'
+                . '<a href="http://www.unsm.pe/efix/index.php/confirmarCorreo?usuario='.$idmd.'" target="_blank">Click Aqui</a>';
         $header = 'From: efixunsm@gmail.com \r\n';
         //$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
         $header .= "Mime-Version: 1.0 \r\n";
@@ -279,8 +280,8 @@ class cIndex extends ControllerBase {
         $obj->codigo_movil = '';
         $obj->calificacion = 0;
         $obj->codigo_patrimonial = $_REQUEST['codigo_patrimonial'];
+        $obj->estado_conectado=1;
         $obj->create();
-        
         $url_script = $_SERVER['SCRIPT_NAME'];
         header('Location: ' . $url_script . '?msg');
         

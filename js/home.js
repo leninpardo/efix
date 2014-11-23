@@ -1,4 +1,28 @@
-$(function(){
+$(document).ready(function() {
+     $("#codigo_referencia").change(function(){
+        /* str="&ajax=ajax&term="+$(this).val();
+        $.post("index.php","/tarea/getCodigoPatrimonial"+str,function(data){
+          alert(data.descripcion)  
+        },'json');*/
+              $.post(
+                      'index.php/tarea/getCodigoPatrimonial',
+                    {
+                        
+                        ajax:'ajax',
+                       term: $(this).val()
+                    },
+            function(response) {
+               
+          
+                  $.each( response.response, function(i){
+                    $("#descripcion").val(this.descripcion);
+            });
+                
+                
+            },
+                    'json'
+                    );
+     });
     
     $('#inicio_sesion').on('submit',function(){
         
@@ -267,3 +291,26 @@ $(function(){
     });
     
 });
+
+buscarPatrimonio = function (request, response){
+    $.post(
+        URLINDEX + "/tarea/getCodigoPatrimonial",
+        {
+            ajax:'ajax',
+            term: request.term
+        },
+        function(r){
+            if ( r.response.length == 0 ) 
+                return false;
+
+            $.each( r.response, function(i){
+                    this.label = this.codigo_patrimonial + " - " + this.descripcion;
+                    this.id = this.id_patrimonio;
+                    this.value = this.codigo_patrimonial;
+            });
+
+            response(r.response);
+
+            },'json'
+        );
+};

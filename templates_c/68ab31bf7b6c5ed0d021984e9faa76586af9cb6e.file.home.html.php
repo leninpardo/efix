@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.0rc1, created on 2014-11-12 03:55:17
+<?php /* Smarty version 3.0rc1, created on 2014-11-21 23:35:14
          compiled from ".\templates\home.html" */ ?>
-<?php /*%%SmartyHeaderCode:1628654632075b32026-34375517%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14918547012822d3b46-27933946%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '68ab31bf7b6c5ed0d021984e9faa76586af9cb6e' => 
     array (
       0 => '.\\templates\\home.html',
-      1 => 1415782513,
+      1 => 1416600621,
     ),
   ),
-  'nocache_hash' => '1628654632075b32026-34375517',
+  'nocache_hash' => '14918547012822d3b46-27933946',
   'function' => 
   array (
   ),
@@ -279,13 +279,17 @@ if (count($_from) > 0){
                             </div>                            
                         </div>
                           <div class="form-group">
-                            <label for="codigo" class="col-sm-2 control-label">Codigo patrimonial</label>
+                            <label  class="col-sm-2 control-label"> Patrimonial</label>
+                      <div class="col-sm-9">
+                            <input type="text" name="codigo_referencia" id="codigo_referencia" class="text" />   
+                            <input type="text" name="descripcion" id="descripcion" class="text" />             
+                      </div>    
                             <div class="col-sm-9">
-                                <input type="text" id="codigo_patrimonial" name="codigo_patrimonial" class="text text-primary"/>
-                            </div>                            
+                                   
+                      </div> 
                         </div>
                         <div class="form-group">
-                            <label for="apellido_paterno" class="col-sm-2 control-label">Imagen</label>
+                            <label for="" class="col-sm-2 control-label">Imagen</label>
                             <div class="col-sm-9">
                                 <input type="file"  name="imagen" id="imagen" value="" />
                             </div>                            
@@ -316,13 +320,13 @@ if (count($_from) > 0){
                             <form id="inicio_sesion" class="form-horizontal" role="form" action="index.php/login" method="post">                        
                                 <div class="form-group">
                                     <label for="login" class="col-sm-3 control-label"></label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="login" id="login" placeholder="Usuario" />
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="login" id="login" placeholder="Usuario/Correo institucional" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="clave" class="col-sm-3 control-label"></label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-10">
                                         <input type="password" class="form-control" name="clave" id="clave" placeholder="Clave" />
                                     </div>
                                 </div>

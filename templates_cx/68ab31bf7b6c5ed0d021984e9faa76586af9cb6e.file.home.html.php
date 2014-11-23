@@ -1,3 +1,21 @@
+<?php /* Smarty version 3.0rc1, created on 2014-11-12 03:55:17
+         compiled from ".\templates\home.html" */ ?>
+<?php /*%%SmartyHeaderCode:1628654632075b32026-34375517%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '68ab31bf7b6c5ed0d021984e9faa76586af9cb6e' => 
+    array (
+      0 => '.\\templates\\home.html',
+      1 => 1415782513,
+    ),
+  ),
+  'nocache_hash' => '1628654632075b32026-34375517',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -25,43 +43,47 @@
                     <li class="" title="Contacto" style="text-align: center;">
                         <a href="#email" data-toggle="tab"><span class="glyphicon glyphicon-envelope" style="font-size: 1.5em;"></span><br />Contacto</a>
                     </li>
-                    {if $logeado eq 'S'}
+                    <?php if ($_smarty_tpl->getVariable('logeado')->value=='S'){?>
                     <li class="" title="Reporte" style="text-align: center;">
                         <a href="#work" data-toggle="tab"><span class="glyphicon glyphicon-pushpin" style="font-size: 1.5em;"></span><br />Averia</a>
                     </li>
                     <li class="" title="Mis Reportes" style="text-align: center;">
                         <a href="#myrep" data-toggle="tab"><span class="glyphicon glyphicon-list" style="font-size: 1.5em;"></span><br />Mis Reportes</a>
                     </li>
-                    {if $usuario['perf_id'] neq 3}
+                    <?php if ($_smarty_tpl->getVariable('usuario')->value['perf_id']!=3){?>
                     <li class="" title="Intranet" style="text-align: center;">
                         <a href="index.php?intranet" ><span class="glyphicon glyphicon-user" style="font-size: 1.5em;"></span><br />Intranet</a>
                     </li>
-                    {/if}
+                    <?php }?>
                     <li class="danger" title="Salir" style="text-align: center;">
                         <a href="index.php/logout" class="text-danger"><span class="glyphicon glyphicon-off" style="font-size: 1.5em;"></span><br />Salir</a>
                     </li>
-                    {else}
+                    <?php }else{ ?>
                     <li class="" title="Acceso" style="text-align: center;">
                         <a href="#work" data-toggle="tab"><span class="glyphicon glyphicon-lock" style="font-size: 1.5em;"></span><br />Acceso</a>
                     </li>
-                    {/if}
+                    <?php }?>
                 </ul>
                 <h1 class="text-muted" style="padding-bottom: 10px;margin-top: 0;margin-bottom: 0;line-height: 70px;">Efix
 
                 </h1>
-                {if $logeado eq 'S'}
+                <?php if ($_smarty_tpl->getVariable('logeado')->value=='S'){?>
                 <div class="alert alert-info fade in">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    Bienvenido: <strong>{$usuario['usua_nombres']} {$usuario['usua_apellido_paterno']} {$usuario['usua_apellido_materno']}</strong>
+                    Bienvenido: <strong><?php echo $_smarty_tpl->getVariable('usuario')->value['usua_nombres'];?>
+ <?php echo $_smarty_tpl->getVariable('usuario')->value['usua_apellido_paterno'];?>
+ <?php echo $_smarty_tpl->getVariable('usuario')->value['usua_apellido_materno'];?>
+</strong>
                 </div>
-                {/if}
+                <?php }?>
 
-                {if $mensaje_averia neq '-'}
+                <?php if ($_smarty_tpl->getVariable('mensaje_averia')->value!='-'){?>
                 <div class="alert alert-info fade in">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    {$mensaje_averia}
+                    <?php echo $_smarty_tpl->getVariable('mensaje_averia')->value;?>
+
                 </div>
-                {/if}
+                <?php }?>
 
             </div>
             <div id="myTabContent" class="tab-content jumbotron" style="min-height: 450px;">
@@ -143,44 +165,60 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {foreach from=$mis_reportes item="rep"}
+                                <?php  $_smarty_tpl->tpl_vars["rep"] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('mis_reportes')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if (count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars["rep"]->key => $_smarty_tpl->tpl_vars["rep"]->value){
+?>
                                     <tr>
                                         <th>
-                                            {$rep['to_char']} {$rep['hora_reporte']}
+                                            <?php echo $_smarty_tpl->getVariable('rep')->value['to_char'];?>
+ <?php echo $_smarty_tpl->getVariable('rep')->value['hora_reporte'];?>
+
                                         </th>
                                         <th>
-                                            {$rep['facu_descripcion']}
+                                            <?php echo $_smarty_tpl->getVariable('rep')->value['facu_descripcion'];?>
+
                                         </th>
                                         <th>
-                                            {$rep['ambi_descripcion']}
+                                            <?php echo $_smarty_tpl->getVariable('rep')->value['ambi_descripcion'];?>
+
                                         </th>
                                         <th>
-                                            {$rep['ubic_descripcion']}
+                                            <?php echo $_smarty_tpl->getVariable('rep')->value['ubic_descripcion'];?>
+
                                         </th>
                                         <th>
-                                            {$rep['descripcion']}
+                                            <?php echo $_smarty_tpl->getVariable('rep')->value['descripcion'];?>
+
                                         </th>
                                         <th>
-                                            {$rep['personal_nombres']}
+                                            <?php echo $_smarty_tpl->getVariable('rep')->value['personal_nombres'];?>
+
                                         </th>
                                         <th>
-                                            {$rep['seguimiento']}
+                                            <?php echo $_smarty_tpl->getVariable('rep')->value['seguimiento'];?>
+
                                         </th>
                                         <th>
-                                            {if $rep['seguimiento'] eq 'ATENDIDO'}
-                                            <div id="rat_{$rep['id_averia']}" class="rating" id_averia="{$rep['id_averia']}" valor="{$rep['calificacion']}">&nbsp;</div>
-                                            {/if}
+                                            <?php if ($_smarty_tpl->getVariable('rep')->value['seguimiento']=='ATENDIDO'){?>
+                                            <div id="rat_<?php echo $_smarty_tpl->getVariable('rep')->value['id_averia'];?>
+" class="rating" id_averia="<?php echo $_smarty_tpl->getVariable('rep')->value['id_averia'];?>
+" valor="<?php echo $_smarty_tpl->getVariable('rep')->value['calificacion'];?>
+">&nbsp;</div>
+                                            <?php }?>
                                         </th>
                                     </tr>
-                                {/foreach}
+                                <?php }} ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="tab-pane fade in row" id="work">
-                    {if $logeado eq 'S'}
+                    <?php if ($_smarty_tpl->getVariable('logeado')->value=='S'){?>
                     <div class="alert alert-danger fade in" style="display: none;" id="mensaje_averia">
-                        <span>{$mensaje}</span>
+                        <span><?php echo $_smarty_tpl->getVariable('mensaje')->value;?>
+</span>
                     </div>
                     <h2>Registro de Averias</h2>                    
                     <form enctype="multipart/form-data" action="index.php/averiarep" id="registro_averia" class="form-horizontal" role="form" method="post">
@@ -189,9 +227,15 @@
                             <div class="col-sm-3">
                                 <select id="facu_id" name="facu_id" class="form-control">
                                     <option value="0">.: SELECCIONE FACULTAD :.</option>
-                                    {foreach from=$facultad item="fa"}
-                                    <option value="{$fa->facu_id}" >{$fa->facu_descripcion}</option>
-                                    {/foreach}
+                                    <?php  $_smarty_tpl->tpl_vars["fa"] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('facultad')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if (count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars["fa"]->key => $_smarty_tpl->tpl_vars["fa"]->value){
+?>
+                                    <option value="<?php echo $_smarty_tpl->getVariable('fa')->value->facu_id;?>
+" ><?php echo $_smarty_tpl->getVariable('fa')->value->facu_descripcion;?>
+</option>
+                                    <?php }} ?>
                                 </select>
                             </div>                            
                             <div class="col-sm-3">
@@ -210,9 +254,15 @@
                             <div class="col-sm-3">
                                 <select id="id_tipoaveria" name="id_tipoaveria" class="form-control">
                                     <option value="0">.: SELECCIONE TIPO AVERIA :.</option>
-                                    {foreach from=$tipo_averia item="ta"}
-                                    <option value="{$ta->id_tipoaveria}" >{$ta->descripcion}</option>
-                                    {/foreach}
+                                    <?php  $_smarty_tpl->tpl_vars["ta"] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('tipo_averia')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if (count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars["ta"]->key => $_smarty_tpl->tpl_vars["ta"]->value){
+?>
+                                    <option value="<?php echo $_smarty_tpl->getVariable('ta')->value->id_tipoaveria;?>
+" ><?php echo $_smarty_tpl->getVariable('ta')->value->descripcion;?>
+</option>
+                                    <?php }} ?>
                                 </select>
                             </div>  
                             <label for="apellido_paterno" class="col-sm-2 control-label">Insidencia</label>
@@ -229,17 +279,13 @@
                             </div>                            
                         </div>
                           <div class="form-group">
-                            <label  class="col-sm-2 control-label"> Patrimonial</label>
-                      <div class="col-sm-9">
-                            <input type="text" name="codigo_referencia" id="codigo_referencia" class="text" />   
-                            <input type="text" name="descripcion" id="descripcion" class="text" />             
-                      </div>    
+                            <label for="codigo" class="col-sm-2 control-label">Codigo patrimonial</label>
                             <div class="col-sm-9">
-                                   
-                      </div> 
+                                <input type="text" id="codigo_patrimonial" name="codigo_patrimonial" class="text text-primary"/>
+                            </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Imagen</label>
+                            <label for="apellido_paterno" class="col-sm-2 control-label">Imagen</label>
                             <div class="col-sm-9">
                                 <input type="file"  name="imagen" id="imagen" value="" />
                             </div>                            
@@ -255,27 +301,28 @@
                             </div>
                         </div>
                     </form>
-                    {else}
+                    <?php }else{ ?>
                     <div class="col-sm-5">
-                        {if $mensaje eq '-'}
+                        <?php if ($_smarty_tpl->getVariable('mensaje')->value=='-'){?>
                         <div class="alert alert-danger fade in" style="display: none;" id="mensaje_session">
-                            {else}
+                            <?php }else{ ?>
                             <div class="alert alert-danger fade in" id="mensaje_session">
-                                {/if}
-                                <span>{$mensaje}</span>
+                                <?php }?>
+                                <span><?php echo $_smarty_tpl->getVariable('mensaje')->value;?>
+</span>
                             </div>
 
                             <h3>Inicie Sesion</h3>
                             <form id="inicio_sesion" class="form-horizontal" role="form" action="index.php/login" method="post">                        
                                 <div class="form-group">
                                     <label for="login" class="col-sm-3 control-label"></label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="login" id="login" placeholder="Usuario/Correo institucional" />
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="login" id="login" placeholder="Usuario" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="clave" class="col-sm-3 control-label"></label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-6">
                                         <input type="password" class="form-control" name="clave" id="clave" placeholder="Clave" />
                                     </div>
                                 </div>
@@ -289,12 +336,13 @@
                         </div>
                         <div class="col-sm-7">
 
-                            {if $mensaje_registro eq '-'}
+                            <?php if ($_smarty_tpl->getVariable('mensaje_registro')->value=='-'){?>
                             <div class="alert alert-danger fade in" style="display: none;" id="mensaje_registro">
-                                {else}
+                                <?php }else{ ?>
                                 <div class="alert alert-danger fade in" id="mensaje_registro">
-                                    {/if}
-                                    <span>{$mensaje}</span>
+                                    <?php }?>
+                                    <span><?php echo $_smarty_tpl->getVariable('mensaje')->value;?>
+</span>
                                 </div>
 
                                 <h3>Registrese</h3>
@@ -349,7 +397,7 @@
                                     </div> 
                                 </form>
                             </div>
-                            {/if} 
+                            <?php }?> 
                         </div>
                     </div>
                     <div class="footer">
