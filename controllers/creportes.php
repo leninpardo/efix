@@ -31,7 +31,7 @@ class cReportes extends ControllerBase {
         $smarty->assign('tipo_averia',$tipo_averia);
         $smarty->assign('facultad',$facultad);
         $smarty->assign('links', 'links.tpl');
-        $smarty->display('reportes/averias.html');
+        $smarty->display('reportes/averias.tpl');
     }
     
 
@@ -39,10 +39,12 @@ class cReportes extends ControllerBase {
         
         include_once 'models/facultad.php';
         $datos = Facultad::datosReporte($_REQUEST['desde'],$_REQUEST['hasta'],$_REQUEST['id_tipoaveria'],$_REQUEST['facu_id'],$_REQUEST['estado']);
-        //include 'templates/reportes/averias_facultad.php';
-        include_once 'lib/fpdf/fpdf.php';
-        $fpdf=new FPDF();
-        include_once 'lib/fpdf/comunes.php';
+                ob_start();
+
+        include 'templates/reportes/averias_facultad.php';
+        //include_once 'lib/fpdf/fpdf.php';
+        //$fpdf=new FPDF();
+       // include_once 'lib/fpdf/comunes.php';
     }
     public function listAction()
     {

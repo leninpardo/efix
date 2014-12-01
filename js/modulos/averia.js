@@ -22,7 +22,7 @@ function setSeguimiento() {
 $(document).ready(function() {
     $("#modalRegistro").dialog({
         autoOpen: false,
-        width: 500,
+        width: 1200,
         modal: true,
         buttons: {
             Guardar: function() {
@@ -40,12 +40,20 @@ $(document).ready(function() {
     limpiaForm($('#frm_averia'), false);
     $("#frm_averia").validate({
         rules: {
-            descripcion: {required: true},
-            id_facultad: {required: true}
+            observacion: {required: true},
+            id_facultad: {required: true},
+            ambi_id:{required:true},
+            ubic_id:{required:true},
+             id_tipoaveria:{required:true},
+             id_incidencia:{required:true}
         },
         messages: {
-            descripcion: {required: "Ingrese descripcion"},
-            id_facultad: {required: "Seleccione una Facultad"}
+            observacion: {required: "Ingrese descripcion"},
+            id_facultad: {required: "Seleccione una Facultad"},
+            ambi_id:{required:"Seleccione un ambiente"},
+             ubic_id:{required: "Selecione una ubicacion"},
+             id_tipoaveria:{required:"selecione tipo de averia"},
+             id_incidencia:{required:"seleccione la incidencia"}
         },
         errorPlacement: function(error, element) {
             error.insertAfter(element.parent().find('label:first'));
@@ -56,9 +64,17 @@ $(document).ready(function() {
                     URLINDEX + '/averia/guardar',
                     {
                         ajax: 'ajax',
-                        ambi_descripcion: $("#descripcion").val().toUpperCase(),
+                        observacion: $("#observacion").val().toUpperCase(),
                         facu_id: $("#id_facultad").val(),
-                        id_averia: $("#id_averia").val()
+                        id_averia: $("#id_averia").val(),
+                        ambi_id: $("#ambi_id").val(),
+                        ubic_id: $("#ubic_id").val(),
+                        id_tipoaveria: $("#id_tipoaveria").val(),
+                        id_incidencia: $("#id_incidencia").val(),
+                        fecha: $("#fecha").val(),
+                        usua_id: $("#usua_id").val(),
+                        nombre_usuario_averia: $("#nombre_usuario_averia").val()
+                        
                     },
             function(response) {
                 QuitarLoading();
@@ -258,6 +274,102 @@ $(document).ready(function() {
             Mensaje('Seleccione un valor de la grilla', 'Seleccione');
         
     });
-   
+   ///////////////////////////////////////////////////
+    $('#facu_id').change(function(){
+        
+        $('#ubic_id').empty();
+        $('#ubic_id').append('<option value="0">.: SELECCIONE UBICACION :.</option>');
+            
+        if ($(this).val() != '0'){
+            
+            $('#ambi_id').empty();
+            $('#ambi_id').append('<option value="0">CARGANDO...</option>');
+            
+            $.post(
+                    URLINDEX +'/ambiente/getAmbientesForFacultad',
+                    {
+                        ajax: 'ajax',
+                        id_facultad: $("#facu_id").val().toUpperCase()
+                    },
+            function(response) {
+                $('#ambi_id').empty();
+                $('#ambi_id').append('<option value="0">.: SELECCIONE AMBIENTE :.</option>');
+                $(response.response).each(function(idx,obj){
+                    $('#ambi_id').append('<option value="' + obj.ambi_id + '">' + obj.ambi_descripcion + '</option>');
+                });
+                
+            },
+            'json'
+            );
+            
+        }else{
+            $('#ambi_id').empty();
+            $('#ambi_id').append('<option value="0">.: SELECCIONE AMBIENTE :.</option>');
+        }
+        
+    });
+    
+    $('#ambi_id').change(function(){
+        
+        $('#ubic_id').empty();
+        $('#ubic_id').append('<option value="0">.: SELECCIONE UBICACION :.</option>');
+            
+        if ($(this).val() != '0'){
+            
+            $('#ubic_id').empty();
+            $('#ubic_id').append('<option value="0">CARGANDO...</option>');
+            
+            $.post(
+                    URLINDEX +'/ubicacion/getUbicacion',
+                    {
+                        ajax: 'ajax',
+                        ambi_id: $("#ambi_id").val().toUpperCase()
+                    },
+            function(response) {
+                $('#ubic_id').empty();
+                $('#ubic_id').append('<option value="0">.: SELECCIONE UBICACION :.</option>');
+                $(response.response).each(function(idx,obj){
+                    $('#ubic_id').append('<option value="' + obj.ubic_id + '">' + obj.ubic_descripcion + '</option>');
+                });
+                
+            },
+            'json'
+            );
+            
+        }
+        
+    });
+    
+    $('#id_tipoaveria').change(function(){
+        
+        $('#id_incidencia').empty();
+        $('#id_incidencia').append('<option value="0">.: SELECCIONE INCIDENCIA :.</option>');
+            
+        if ($(this).val() != '0'){
+            
+            $('#id_incidencia').empty();
+            $('#id_incidencia').append('<option value="0">CARGANDO...</option>');
+            
+            $.post(
+                    URLINDEX +'/incidencia/getInsidencia',
+                    {
+                        ajax: 'ajax',
+                        id_tipoaveria: $("#id_tipoaveria").val().toUpperCase()
+                    },
+            function(response) {
+                $('#id_incidencia').empty();
+                $('#id_incidencia').append('<option value="0">.: SELECCIONE INCIDENCIA :.</option>');
+                $(response.response).each(function(idx,obj){
+                    $('#id_incidencia').append('<option value="' + obj.id_incidencia + '">' + obj.descripcion + '</option>');
+                });
+                
+            },
+            'json'
+            );
+            
+        }
+        
+    });
+    ////
     
 });

@@ -7,7 +7,7 @@
 
 $(document).ready(inicio);
 
-/*function inicio(){
+function inicio(){
     $("#contentLoading").fadeOut("fast");
     
     $("#desde").datepicker();
@@ -67,4 +67,4 @@ $(document).ready(inicio);
     $("div#reporte").printArea();
     });
 
-}*/
+}

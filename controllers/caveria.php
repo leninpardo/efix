@@ -107,10 +107,13 @@ class cAveria extends ControllerBase {
         include_once 'models/facultad.php';
     $facultad = new facultad();
         $facultad = $facultad->getAll()->WhereAnd('facu_estado=', 'true');
-        //AMBIENTES
-        //UBICACIONES
+        //usuarios registrados
+        include_once 'models/usuario.php';
+        $usuarios=new Usuario();
+         $usuarios = $usuarios->getAll()->WhereAnd('usua_estado=', 'true');
         $smarty->assign('personal', $personal);
          $smarty->assign('facultad', $facultad);
+          $smarty->assign('usuario', $usuarios);
         $smarty->assign('links', 'links.tpl');
         $smarty->assign('grilla', $grilla->buildJsGrid());
         $smarty->display('averia/form.tpl');

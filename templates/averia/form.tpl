@@ -21,23 +21,71 @@
           <legend class="ui-widget-header ui-corner-all">Datos</legend>
 
             <form action="/index.php/averia/guardar" title="Administrar Averias" method="post" id="frm_averia" class="formulario ">
-                <table style="width: 100%">
+                <table style="width: 100%" >
                      <tr>                    
-                        <td><label class="required" for="descripcion">Descripcion</label>
+                         <td colspan="3"><label class="required" for="descripcion">Descripcion</label>
                             <br/>
-                            <input type="text" name="descripcion" id="descripcion" class="text ui-widget-content ui-corner-all" style="width: 100%" maxlength="300"/></td>
+                            <textarea name="observacion" id="observacion"  style=""   >
+                            </textarea></td>
                     </tr>                   
                     <tr>
-                        <td colspan="2">
-                            <label  class="required" for="id_facultad">Facultad</label>
+                        <td colspan="">
+                            <label  class="required" for="id_facultad">Ambientes</label>
                             <br/>
-                            <select name="id_facultad" id="id_facultad" style="width: 100%" title="Seleccione Facultad">
+                            <select name="facu_id" id="facu_id" style="" title="Seleccione Facultad">
+                                <option value="">::Seleccione Facultad::</option>
                                 {foreach from=$facultad item="facu"}
                                     <option value="{$facu->facu_id}" >{$facu->facu_descripcion}</option>
                                 {/foreach}
                             </select> 
                         </td>
-                    </tr>                
+                        <td>
+                            <select id="ambi_id" name="ambi_id">
+                                <option value="">::Seleccione ambiente::</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ubic_id" name="ubic_id">
+                                <option value="">::Seleccione ambiente::</option>
+                            </select>
+                        </td>
+                    </tr> 
+                    <tr>
+                       
+                        <td>
+                            <label class="required" for="id_tipoaveria">Tipo de Averia</label>
+                            <select id="id_tipoaveria" name="id_tipoaveria" class="form-control">
+                                <option value="0">.: SELECCIONE TIPO AVERIA :.</option>
+                                <option value="1">HARDWARE</option>
+                                <option value="3">SOFTWARE</option>
+                                <option value="2">REDES</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label class="required" for="id_incidencia" >Incidencia</label>
+                            <select id="id_incidencia" name="id_incidencia">
+                                <option>::Selecione Incidencia::</option>
+                            </select>
+                        </td>
+                        <td><label class="required" for="fecha">Fecha:</label>
+                            <input type='text' name='fecha' id="fecha" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Usuarios que reportan</label>
+                            <select id="usua_id" name="usua_id">
+                                <option>::Seleccione::</option>
+                                 {foreach from=$usuario item="usua"}
+                                    <option value="{$usua->usua_id}" >{$usua->usua_nombres}</option>
+                                {/foreach} 
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <label>Nombre de usuario/en caso de no estar registrado</label>
+                            <input type='text' name='nombre_usuario_averia' id='nombre_usuario_averia' class="text " />
+                        </td>
+                    </tr>
+                   
                 </table>
 
                 <input type="hidden" name="id_averia" id="id_averia" value ="-1"/>
