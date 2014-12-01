@@ -280,7 +280,7 @@ class cIndex extends ControllerBase {
         $obj->codigo_movil = '';
         $obj->calificacion = 0;
         $obj->codigo_patrimonial = $_REQUEST['codigo_patrimonial'];
-        $obj->estado_conectado=1;
+        //$obj->estado_conectado=1;
         $obj->create();
         $url_script = $_SERVER['SCRIPT_NAME'];
         header('Location: ' . $url_script . '?msg');

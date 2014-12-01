@@ -80,8 +80,9 @@ $(document).ready(function() {
     });
 
     $("#nuevo_averia").button().click(function() {
+        
         limpiaForm($('#frm_averia'), true);
-        $("#id_averia").val(-1);
+        //$("#id_averia").val(-1);
         $("#modalRegistro").dialog("open");
     });
 
@@ -201,7 +202,7 @@ $(document).ready(function() {
             limpiaForm($('#frm_averia'), false);
         }
     });
-    
+   
     $("#detalle_averia").button().click(function() {
         
         var indexR = jQuery('#lsaveria').getGridParam("selrow");
@@ -234,6 +235,7 @@ $(document).ready(function() {
                         $('#det_fecha').val(data.fecha_reporte);
                         $('#det_hora').val(data.hora_reporte);
                         $('#det_facultad').val(data.facu_descripcion);
+                       
                         $('#det_ambiente').val(data.ambi_descripcion);
                         $('#det_ubicacion').val(data.ubic_descripcion);
                         $('#det_insidencia').val(data['i.descripcion']);
@@ -244,7 +246,7 @@ $(document).ready(function() {
                         $('#det_imagen').attr('src','../archivos/' + response.response.imagen);
                         // $('#det_mapa').attr('src','..//' + response.response.imagen);
                         $("#div_mapa").empty();
-                        $("#div_mapa").append("<img src='../images/unsm.jpg' width='500px' heigth='450px' ></img>");
+                        $("#div_mapa").append("<img src='../images/unsm.jpg' width='800px' heigth='450px' ></img>");
                         $("#div_mapa").append("<img src='../images/efix.png' width='20px' heigth='20px' style='"+response.response.position+"' ></img>");
                          //$("#det_mapa").attr('src','../images/unsm.jpg');
                         $("#dlgDetalle").dialog("open");
@@ -256,5 +258,6 @@ $(document).ready(function() {
             Mensaje('Seleccione un valor de la grilla', 'Seleccione');
         
     });
+   
     
 });

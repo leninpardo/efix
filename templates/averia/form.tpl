@@ -9,8 +9,8 @@
         <div id="pgaveria"></div> 
         <fieldset class="ui-widget ui-widget-content" style="margin-top: 5px;"> 
             <legend class="ui-widget-header ui-corner-all">Operaciones</legend>            
-            <!--<button id="nuevo_averia">Nuevo</button>
-            <button id="modificar_averia">Modificar</button>-->
+            <button id="nuevo_averia">Nuevo</button>
+            <!--<button id="modificar_averia">Modificar</button>-->
             <button id="anular_averia">Anular</button>
             <button id="asignar_averia">Asignar</button>
             <button id="detalle_averia">Detalle</button>
@@ -72,14 +72,14 @@
         
     </div>
     
-    <table>
+    <table style="width:900px">
 		<tr>
 			<td>
 			
 				<table style="width: 450px">
 					<tr>
 						<td>
-							<label></label>
+							<label>Fecha</label>
 						</td>
 						<td>
 							<input type="text" name="det_fecha" id="det_fecha" class="text ui-widget-content ui-corner-all" style="width: 100%" readonly="readonly"/></td>
@@ -140,26 +140,16 @@
 						<td colspan="3">
 							<textarea name="det_observaciones" id="det_observaciones" rows="4" cols="20" style="width: 100%;" readonly="readonly"></textarea>
 						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>Imagen</label>
-						</td>            
-						<td colspan="3">
-
-						<img src="#"  alt="Imagen de la averia" style="width: 100%;height: 200px;" id="det_imagen">
-
-						</td>
+						
 					</tr>
 				</table>
-			
-			</td>
-			<td>
 				
-					<div id="div_mapa">
-						
-					</div>
 			</td>
-		</tr>
+		
+				<td>		
+					<img src="#"  alt="Imagen de la averia" style="width: 80%;height: 190px;" id="det_imagen" class="img-responsive">		
+				</td>
+		</tr>	
 	</table>
+	<div id="div_mapa"></div>
 </div>

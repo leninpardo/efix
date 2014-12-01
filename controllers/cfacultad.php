@@ -35,6 +35,7 @@ class cFacultad extends ControllerBase {
     public function guardarCoordenadaAjax() {
         include_once 'models/coordenada.php';
         $obj = new Coordenada();
+       // $_REQUEST['tipo_lugar_id']=$_REQUEST['tipo_id'];
         $obj->setFields($_REQUEST);
         $obj->estado = 'true';
         try {

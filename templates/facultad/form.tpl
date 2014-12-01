@@ -32,7 +32,7 @@
                             <br/>
                             <select name="tipo_id" id="tipo_id" style="width: 100%" title="Seleccione " >
                                 {foreach from=$tipo item="tip"}
-                                    <option value="{$tip->tipo_id}" >{$tip->descripcion}</option>
+                                    <option value="{$tip->tipo_id}" >{$tip->tipo_descripcion}</option>
                                 {/foreach}
                             </select> 
                         </td>

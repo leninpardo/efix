@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.0rc1, created on 2014-11-21 23:36:29
+<?php /* Smarty version 3.0rc1, created on 2014-11-30 21:43:52
          compiled from ".\templates\averia/form.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19161547012cde7d156-09569133%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15406547bd5e8628ca1-52536192%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5e2e9efad27b3b1ae1fd4ac1bcc61492554192ad' => 
     array (
       0 => '.\\templates\\averia/form.tpl',
-      1 => 1416630981,
+      1 => 1417401828,
     ),
   ),
-  'nocache_hash' => '19161547012cde7d156-09569133',
+  'nocache_hash' => '15406547bd5e8628ca1-52536192',
   'function' => 
   array (
   ),
@@ -31,8 +31,8 @@ js/modulos/averia.js"></script>
         <div id="pgaveria"></div> 
         <fieldset class="ui-widget ui-widget-content" style="margin-top: 5px;"> 
             <legend class="ui-widget-header ui-corner-all">Operaciones</legend>            
-            <!--<button id="nuevo_averia">Nuevo</button>
-            <button id="modificar_averia">Modificar</button>-->
+            <button id="nuevo_averia">Nuevo</button>
+            <!--<button id="modificar_averia">Modificar</button>-->
             <button id="anular_averia">Anular</button>
             <button id="asignar_averia">Asignar</button>
             <button id="detalle_averia">Detalle</button>
@@ -108,14 +108,14 @@ if (count($_from) > 0){
         
     </div>
     
-    <table>
+    <table style="width:900px">
 		<tr>
 			<td>
 			
 				<table style="width: 450px">
 					<tr>
 						<td>
-							<label></label>
+							<label>Fecha</label>
 						</td>
 						<td>
 							<input type="text" name="det_fecha" id="det_fecha" class="text ui-widget-content ui-corner-all" style="width: 100%" readonly="readonly"/></td>
@@ -176,26 +176,16 @@ if (count($_from) > 0){
 						<td colspan="3">
 							<textarea name="det_observaciones" id="det_observaciones" rows="4" cols="20" style="width: 100%;" readonly="readonly"></textarea>
 						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>Imagen</label>
-						</td>            
-						<td colspan="3">
-
-						<img src="#"  alt="Imagen de la averia" style="width: 100%;height: 200px;" id="det_imagen">
-
-						</td>
+						
 					</tr>
 				</table>
-			
-			</td>
-			<td>
 				
-					<div id="div_mapa">
-						
-					</div>
 			</td>
-		</tr>
+		
+				<td>		
+					<img src="#"  alt="Imagen de la averia" style="width: 80%;height: 190px;" id="det_imagen" class="img-responsive">		
+				</td>
+		</tr>	
 	</table>
+	<div id="div_mapa"></div>
 </div>

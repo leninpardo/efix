@@ -12,6 +12,13 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/efix/js/modulos/ambiente.js</file>
+            <file>file:/C:/xampp/htdocs/efix/js/modulos/facultad.js</file>
+            <file>file:/C:/xampp/htdocs/efix/models/tipo_lugares.php</file>
+            <file>file:/C:/xampp/htdocs/efix/templates/facultad/form.tpl</file>
+            <file>file:/C:/xampp/htdocs/efix/controllers/cfacultad.php</file>
+            <file>file:/C:/xampp/htdocs/efix/controllers/cambiente.php</file>
+        </group>
     </open-files>
 </project-private>

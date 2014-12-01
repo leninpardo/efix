@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.0rc1, created on 2014-10-31 00:39:44
-         compiled from "./templates/facultad/form.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1042150042545320a09ccc09-33356607%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version 3.0rc1, created on 2014-11-30 15:07:22
+         compiled from ".\templates\facultad/form.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:9253547b78fab8d954-96894384%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '7f8bb62b56b915f3a94673785ddf287e9f9c4dd1' => 
+    '578b975a6f2ac247341113506ee276a122e53411' => 
     array (
-      0 => './templates/facultad/form.tpl',
-      1 => 1414733963,
+      0 => '.\\templates\\facultad/form.tpl',
+      1 => 1417377943,
     ),
   ),
-  'nocache_hash' => '1042150042545320a09ccc09-33356607',
+  'nocache_hash' => '9253547b78fab8d954-96894384',
   'function' => 
   array (
   ),
@@ -59,7 +59,7 @@ if (count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars["tip"]->key => $_smarty_tpl->tpl_vars["tip"]->value){
 ?>
                                     <option value="<?php echo $_smarty_tpl->getVariable('tip')->value->tipo_id;?>
-" ><?php echo $_smarty_tpl->getVariable('tip')->value->descripcion;?>
+" ><?php echo $_smarty_tpl->getVariable('tip')->value->tipo_descripcion;?>
 </option>
                                 <?php }} ?>
                             </select> 

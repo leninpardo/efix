@@ -51,7 +51,22 @@ class cAveria extends ControllerBase {
 
     public function getAjax() {
 
-       return Averia::averias($_REQUEST['id_averia']);
+      // return Averia::averias($_REQUEST['id_averia']);
+         $obj = new averia();
+        try {
+            $obj->find($_REQUEST);
+            
+            $tar = $obj->getFields();
+            
+            include_once 'models/averia.php';
+            $averia = new Averia(array('id_averia'=>$obj->id_averia));
+            $data=$averia->getFields();
+            $tar['averia'] = Averia::averias($obj->id_averia);///
+            
+        } catch (ORMException $e) {
+            $tar = null;
+        }
+        return $tar;
     }
 
     public function getAveriasForFacultadAjax() {
@@ -76,8 +91,8 @@ class cAveria extends ControllerBase {
         $grilla->addColumnas("fecha_reporte", "Fecha", 15);
         $grilla->addColumnas("hora_reporte", "Hora", 15);
         $grilla->addColumnas("facu_descripcion", "Facultad", 40);
-        //$grilla->addColumnas("ambi_descripcion", "Ambiente", 40);
-        //$grilla->addColumnas("ubic_descripcion", "Ubicacion", 40);
+        $grilla->addColumnas("ambi_descripcion", "Ambiente", 40);
+        $grilla->addColumnas("ubic_descripcion", "Ubicacion", 40);
         $grilla->addColumnas("i.descripcion", "Incidencia", 40);
         //$grilla->addColumnas("usua_nombres", "Reportado por", 40);
         $grilla->addColumnas("personal_nombres", "Asignado A", 40);
@@ -88,8 +103,14 @@ class cAveria extends ControllerBase {
         include_once 'models/personal.php';
         $personal = new Personal();
         $personal = $personal->getAll()->WhereAnd('estado=', 'true');
-
+        //facultades
+        include_once 'models/facultad.php';
+    $facultad = new facultad();
+        $facultad = $facultad->getAll()->WhereAnd('facu_estado=', 'true');
+        //AMBIENTES
+        //UBICACIONES
         $smarty->assign('personal', $personal);
+         $smarty->assign('facultad', $facultad);
         $smarty->assign('links', 'links.tpl');
         $smarty->assign('grilla', $grilla->buildJsGrid());
         $smarty->display('averia/form.tpl');
@@ -107,8 +128,8 @@ class cAveria extends ControllerBase {
         $db->addColumna('fecha_reporte');
         $db->addColumna('hora_reporte');
         $db->addColumna('facu_descripcion');
-        //$db->addColumna('ambi_descripcion');
-        //$db->addColumna('ubic_descripcion');
+        $db->addColumna('ambi_descripcion');
+        $db->addColumna('ubic_descripcion');
         $db->addColumna('i.descripcion');
        // $db->addColumna('usua_nombres');
         $db->addColumna('personal_nombres');
@@ -136,6 +157,8 @@ class cAveria extends ControllerBase {
             a.id_averia,a.id_averia as id,to_char(a.fecha_reporte,'dd/MM/yyyy') ,
 a.hora_reporte,
             f.facu_descripcion,
+            m.ambi_descripcion,
+            b.ubic_descripcion,
             i.descripcion,            
             (p.nombres||' '||p.apellido_paterno||' '||p.apellido_materno) as personal_nombres,
             CASE 

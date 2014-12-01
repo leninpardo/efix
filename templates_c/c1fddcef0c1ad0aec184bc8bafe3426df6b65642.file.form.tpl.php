@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.0rc1, created on 2014-06-11 15:56:31
-         compiled from ".\templates\ubicacion/form.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:297475398c27f7b4e72-64772896%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version 3.0rc1, created on 2014-11-30 11:02:45
+         compiled from ".\templates\ambiente/form.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2357547b3fa5bf88a2-28484908%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '3672c016a1b6b3ce45555a9514f4f2504befe5b9' => 
+    'c1fddcef0c1ad0aec184bc8bafe3426df6b65642' => 
     array (
-      0 => '.\\templates\\ubicacion/form.tpl',
-      1 => 1401943556,
+      0 => '.\\templates\\ambiente/form.tpl',
+      1 => 1401943536,
     ),
   ),
-  'nocache_hash' => '297475398c27f7b4e72-64772896',
+  'nocache_hash' => '2357547b3fa5bf88a2-28484908',
   'function' => 
   array (
   ),
@@ -20,25 +20,25 @@ $_smarty_tpl->decodeProperties(array (
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('HOST')->value;?>
-js/modulos/ubicacion.js"></script>
+js/modulos/ambiente.js"></script>
 <script type="text/javascript"><?php echo $_smarty_tpl->getVariable('grilla')->value;?>
 </script>
 <div style="width: 100%">    
     <div>        
-        <table id="lsubicacion"></table>
-        <div id="pgubicacion"></div> 
+        <table id="lsambiente"></table>
+        <div id="pgambiente"></div> 
         <fieldset class="ui-widget ui-widget-content" style="margin-top: 5px;"> 
             <legend class="ui-widget-header ui-corner-all">Operaciones</legend>            
-            <button id="nuevo_ubicacion">Nuevo</button>
-            <button id="modificar_ubicacion">Modificar</button>
-            <button id="anular_ubicacion">Anular</button>
+            <button id="nuevo_ambiente">Nuevo</button>
+            <button id="modificar_ambiente">Modificar</button>
+            <button id="anular_ambiente">Anular</button>
         </fieldset>        
     </div>
-    <div id="modalRegistro" title="Ubicacion...">        
+    <div id="modalRegistro" title="Ambiente...">        
         <fieldset class="ui-widget ui-widget-content"> 
           <legend class="ui-widget-header ui-corner-all">Datos</legend>
 
-            <form action="/index.php/ubicacion/guardar" title="Administrar Aulas - Oficinas" method="post" id="frm_ubicacion" class="formulario ">
+            <form action="/index.php/ambiente/guardar" title="Administrar Ambientes" method="post" id="frm_ambiente" class="formulario ">
                 <table style="width: 100%">
                      <tr>                    
                         <td><label class="required" for="descripcion">Descripcion</label>
@@ -61,27 +61,10 @@ if (count($_from) > 0){
                                 <?php }} ?>
                             </select> 
                         </td>
-                    </tr>   
-                    <tr>
-                        <td colspan="2">
-                            <label  class="required" for="id_ambiente">Ambiente</label>
-                            <br/>
-                            <select name="id_ambiente" id="id_ambiente" style="width: 100%" title="Seleccione Ambiente">
-                                <?php  $_smarty_tpl->tpl_vars["ambi"] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('ambiente')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-if (count($_from) > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars["ambi"]->key => $_smarty_tpl->tpl_vars["ambi"]->value){
-?>
-                                    <option value="<?php echo $_smarty_tpl->getVariable('ambi')->value->ambi_id;?>
-" ><?php echo $_smarty_tpl->getVariable('ambi')->value->ambi_descripcion;?>
-</option>
-                                <?php }} ?>
-                            </select> 
-                        </td>
-                    </tr>  
+                    </tr>                
                 </table>
 
-                <input type="hidden" name="id_ubicacion" id="id_ubicacion" value ="-1"/>
+                <input type="hidden" name="id_ambiente" id="id_ambiente" value ="-1"/>
 
                 <span id="load"></span>
 

@@ -47,7 +47,8 @@ $(document).ready(function() {
                     {
                         ajax: 'ajax',
                         facu_descripcion: $("#descripcion").val().toUpperCase(),
-                        facu_id: $("#id_facultad").val()
+                        facu_id: $("#id_facultad").val(),
+                        tipo_lugar_id:$("#tipo_id").val()
                     },
             function(response) {
                 QuitarLoading();
@@ -89,6 +90,7 @@ $(document).ready(function() {
                 QuitarLoading();
                 $("#descripcion").val(response.response.facu_descripcion);
                 $("#id_facultad").val(response.response.facu_id);
+                $("#tipo_id").val(response.response.tipo_lugar_id);
                 $("#modalRegistro").dialog("open");
             },
                     'json'
