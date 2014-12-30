@@ -51,8 +51,8 @@ class cAveria extends ControllerBase {
 
     public function getAjax() {
 
-      // return Averia::averias($_REQUEST['id_averia']);
-         $obj = new averia();
+      return Averia::averias($_REQUEST['id_averia']);
+         /*$obj = new averia();
         try {
             $obj->find($_REQUEST);
             
@@ -66,7 +66,7 @@ class cAveria extends ControllerBase {
         } catch (ORMException $e) {
             $tar = null;
         }
-        return $tar;
+        return $tar;*/
     }
 
     public function getAveriasForFacultadAjax() {

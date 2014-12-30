@@ -36,24 +36,22 @@ class averia extends Main
            hora_reporte,observacion,ubic_id,imagen,cantidad)
  values(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,1)");
 			$stmt =$this->db->prepare($sql);
-			$incidencia=$P['id_incidencia'];
-			$stmt2=$this->db->prepare("SELECT incidencia.id_incidencia from incidencia
-where incidencia.descripcion='$incidencia'");
+			/*$stmt2=$this->db->prepare("SELECT incidencia.id_incidencia from incidencia
+where incidencia.descripcion='"+$P['id_incidencia']+"'");*/
 			try
 			{
 				$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$this->db->beginTransaction();
-			$stmt2->execute();
-			$r=$stmt2->fetchAll();
-			$incidencia_id=$r[0][0];
+			//$stmt2->execute();
+			//$r=$stmt2->fetchAll();
 				$stmt->bindValue(':p1',  $id=$this->max_id("averia"), PDO::PARAM_INT);
-				$stmt->bindValue(':p2', $incidencia_id , PDO::PARAM_INT);
+				$stmt->bindValue(':p2',  1, PDO::PARAM_INT);
 				$stmt->bindValue(':p3',  1, PDO::PARAM_INT);
 				$stmt->bindValue(':p4',  date("Y-m-d"), PDO::PARAM_STR);
 				$stmt->bindValue(':p5',  date("H:i:s"), PDO::PARAM_STR);
                 $stmt->bindValue(':p6',$P['descripcion'], PDO::PARAM_STR);
                 $stmt->bindValue(':p7',$P['id_aula'], PDO::PARAM_INT);               
-				$stmt->bindValue(':p8',  substr($P['nameimagen'],1,-4)."png.png", PDO::PARAM_STR);
+				$stmt->bindValue(':p8',  substr($P['nameimagen'],1,-4).".png", PDO::PARAM_STR);
                  //$stmt->bindValue(':p9',$P['codigo_movil'], PDO::PARAM_STR);
 					//$stmt->bindValue(':p10',$P['incidencia'], PDO::PARAM_INT);				 
                                 //$stmt->bindValue(':p6',1, PDO::PARAM_INT);
@@ -61,12 +59,11 @@ where incidencia.descripcion='$incidencia'");
 				//$stmt->bindValue(':id',$P['idaverias'], PDO::PARAM_INT);
 				$stmt->execute();
 				$this->db->commit();
-                                $stmt3 =$this->db->prepare("select max(id_averia) as id from averia");
-				$stmt3->execute();
+                                $stmt2 =$this->db->prepare("select max(id_averia) as id from averia");
+				$stmt2->execute();
                                 
                                 //$resp["rep"]=1;
-				return $stmt3->fetchAll();
-				
+				return $stmt2->fetchAll();
 			}
 			catch(PDOException $e) 
 			{
@@ -155,9 +152,9 @@ where incidencia.descripcion='$incidencia'");
 			   $foo->file_new_name_body = $Photo;// nombre de la imagen...
 			   $foo->image_resize = true; // autoriza que si se redimensione
                             $foo->image_convert="png";//convierta la imagen 
-			  // $foo->image_x = 187; // Tama�o en pixeles - Ancho
-			  // $foo->image_y = 270; // Tama�o en pixeles - Alto
-			   $foo->Process('../archivos/'); // Carpeta donde se va grabar la imagen
+			   $foo->image_x = 187; // Tama�o en pixeles - Ancho
+			   $foo->image_y = 270; // Tama�o en pixeles - Alto
+			   $foo->Process('archivos/'); // Carpeta donde se va grabar la imagen
 				 if ($foo->processed) 
 				 { 
 				   if($P['band']==0){
@@ -209,10 +206,10 @@ where incidencia.descripcion='$incidencia'");
 	
     function getAmbiente($id)
     {
-          $stmt = $this->db->prepare("SELECT  ambiente.ambi_id as idambientes,ambiente.ambi_descripcion as piso from ambiente  WHERE facu_id=:id");
+          $stmt = $this->db->prepare("select idambientes,piso from ambientes where facultad=:id and codigo_aula is null");
           $stmt->bindValue(':id', $id , PDO::PARAM_INT);
           $stmt->execute();
-       return $stmt->fetchAll();
+        return $stmt->fetchAll();
     }
     
      function getAulas($id)

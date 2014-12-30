@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.0rc1, created on 2014-12-01 12:22:37
+<?php /* Smarty version 3.0rc1, created on 2014-12-03 10:32:23
          compiled from ".\templates\reportes/bi.html" */ ?>
-<?php /*%%SmartyHeaderCode:3514547ca3ddddc8a5-99435514%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12336547f2d07d4ea03-98005312%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '090b20af468bf14e498c426406dd3d71e68a166c' => 
     array (
       0 => '.\\templates\\reportes/bi.html',
-      1 => 1416287462,
+      1 => 1417620728,
     ),
   ),
-  'nocache_hash' => '3514547ca3ddddc8a5-99435514',
+  'nocache_hash' => '12336547f2d07d4ea03-98005312',
   'function' => 
   array (
   ),
@@ -25,5 +25,5 @@ js/modulos/reportes.js"></script>
 
 <fieldset class="ui-widget ui-widget-content" style="margin-top: 5px;"> 
     <legend class="ui-widget-header ui-corner-all">Filtro</legend>   
-    <iframe src="http://localhost:8085/pentaho/content/saiku-ui/index.html?biplugin=true&userid=joe&password=password" style="width:100%;height:100%;" scrolling="no"></iframe>
+    <iframe src="http://localhost:8080/pentaho/content/saiku-ui/index.html?biplugin=true&userid=joe&password=password" style="width:100%;height:100%;" scrolling="no"></iframe>
 </fieldset>

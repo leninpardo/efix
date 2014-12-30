@@ -2,11 +2,11 @@
 require_once 'model/averia.php';
 $averia=new averia();
 
-  /*$rep=array();
-$ruta = "view/fotos_averia/" . basename( $_FILES['fotoUp']['name']);
+  $rep=array();
+$ruta = "../archivos/" . basename( $_FILES['fotoUp']['name']);
 if(move_uploaded_file($_FILES['fotoUp']['tmp_name'], $ruta))
 {
-       chmod("view/fotos_averia/".basename( $_FILES['fotoUp']['name']), 0644);
+       chmod("../archivos/".basename( $_FILES['fotoUp']['name']), 0644);
        $msg= array('rep'=>"1");
      
        $rep["respuesta"]=$msg;
@@ -16,9 +16,9 @@ if(move_uploaded_file($_FILES['fotoUp']['tmp_name'], $ruta))
 	   $msg= array('rep'=>"2");
            $rep["respuesta"]=$msg;
 		 print_r(json_encode($msg));
-	   }*/
-$r=array();
+	   }
+/*$r=array();
 $r["respuesta"]=$averia->save_imagen($_FILES['fotoUp']['tmp_name'],$_FILES['fotoUp']['name']);
-	 print_r(json_encode($r));
+	 print_r(json_encode($r));*/
           
 ?>
